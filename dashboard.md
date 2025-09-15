@@ -60,13 +60,18 @@ A separate, standalone Rust binary will be created to demonstrate a safe and eff
 
 ### Full-Stack Quality and Validation
 
-To validate the success of this build, a test suite covering both the frontend and backend is required.
+To validate the success of this build, a comprehensive test and benchmark suite covering both the frontend and backend is required.
 
 *   **Backend Testing:**
     *   **Unit Tests:** Primarily for the migration's transformation logic, ensuring the mapping from WHMCS fields is correct.
     *   **Integration Tests:** To verify the core API endpoints, including authentication, error handling, and successful orchestration of a server creation request.
 *   **Frontend Testing:**
     *   **Component Tests:** Basic tests (e.g., using Vitest/React Testing Library) must be included to verify the behavior of critical UI components like the login form and the server dashboard display.
+*   **Professional Performance Benchmarking:**
+    *   **API Performance:** JWT authentication throughput, database query speeds, async task processing latency, and memory usage profiling
+    *   **Migration Performance:** WHMCS transformation speed, bulk insert rates, memory efficiency, and idempotency validation
+    *   **Frontend Performance:** React component render times, API response handling, and bundle size optimization
+    *   **End-to-End Validation:** Complete workflow timing, concurrent user load testing, and connection pool performance
 ### Extended Technology & Protocol Stack
 
 This stack includes the technologies explicitly mentioned and those implicitly required to successfully complete the project.
@@ -134,6 +139,7 @@ This translates the technology stack into the practical skills needed to execute
 *   **Test-Driven Development (TDD):** A strong discipline for writing unit tests for critical business logic (especially the data transformation rules) and integration tests for API endpoints.
 *   **Mocking & Dependency Injection:** The ability to architect code using traits to decouple components, allowing for external services (like a hypervisor API) to be mocked during testing.
 *   **Structured Logging:** Skill in using the `tracing` library to produce meaningful, structured logs that are essential for debugging a distributed or asynchronous system.
+*   **Professional Benchmarking:** Expertise in designing, implementing, and analyzing comprehensive performance benchmarks for API endpoints, database operations, and full-system workflows including statistical analysis of performance trends and regression detection.
 
 ---
 
