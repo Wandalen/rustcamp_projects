@@ -146,38 +146,38 @@ This roadmap provides a logical progression with curated YouTube courses to acqu
 *   **Goal:** Set up the complete development and testing environment.
 *   **Courses:**
     *   **Docker & PostgreSQL:** Start with the fundamentals of containerization and setting up your database.
-        *   Docker Crash Course for Absolute Beginners (1h 18m): [https://www.youtube.com/watch?v=pg19Z8LL06w](https://www.youtube.com/watch?v=pg19Z8LL06w)
-        *   PostgreSQL Tutorial for Beginners (2h 48m, watch the first hour): [https://www.youtube.com/watch?v=sp_n0f_d2-M](https://www.youtube.com/watch?v=sp_n0f_d2-M)
+        *   [Docker Crash Course for Absolute Beginners (1h 18m)](https://www.youtube.com/watch?v=pg19Z8LL06w)
+        *   [PostgreSQL Tutorial for Beginners (2h 48m, watch the first hour)](https://www.youtube.com/watch?v=sp_n0f_d2-M)
     *   **WHMCS Setup:** Get a basic understanding of installing and configuring the legacy system.
-        *   Getting Started with WHMCS: Installing WHMCS (4m): [https://www.youtube.com/watch?v=Guw941-2-4A](https://www.youtube.com/watch?v=Guw941-2-4A)
-        *   How to Setup WHMCS (7m): [https://www.youtube.com/watch?v=yW8eay8h2E8](https://www.youtube.com/watch?v=yW8eay8h2E8)
+        *   [Getting Started with WHMCS: Installing WHMCS (4m)](https://www.youtube.com/watch?v=Guw941-2-4A)
+        *   [How to Setup WHMCS (7m)](https://www.youtube.com/watch?v=yW8eay8h2E8)
     *   **Rust & Axum Basics:** A quick introduction to get your first web server running.
-        *   Rust Axum Full Course - Web Development (1h 19m, watch the first 30 minutes): [https://www.youtube.com/watch?v=XZtlD_m59sM](https://www.youtube.com/watch?v=XZtlD_m59sM)
+        *   [Rust Axum Full Course - Web Development (1h 19m, watch the first 30 minutes)](https://www.youtube.com/watch?v=XZtlD_m59sM)
 
 #### **Phase 2: Core API Feature Development (Approx. 3 hours)**
 
 *   **Goal:** Build out the functional, secure core of the new server management API.
 *   **Courses:**
     *   **Rust, Axum & SQLx:** Dive deeper into building a production-ready API with database integration.
-        *   Rust Axum Production Coding (3h 36m, watch the first 1.5 hours covering Tracing, Config, and Model Layer): [https://www.youtube.com/watch?v=3cA_mk4vdWY](https://www.youtube.com/watch?v=3cA_mk4vdWY)
+        *   [Rust Axum Production Coding (3h 36m, watch the first 1.5 hours covering Tracing, Config, and Model Layer)](https://www.youtube.com/watch?v=3cA_mk4vdWY)
     *   **JWT Authentication in Rust:** Learn how to secure your API endpoints.
-        *   JWT Authentication in Rust | A Step-by-Step Guide (17m): [https://www.youtube.com/watch?v=hswk_54aVjM](https://www.youtube.com/watch?v=hswk_54aVjM)
-        *   Secure Authentication with JWT in AXUM Rust (24m): [https://www.youtube.com/watch?v=FBnBcYp0K_A](https://www.youtube.com/watch?v=FBnBcYp0K_A)
+        *   [JWT Authentication in Rust | A Step-by-Step Guide (17m)](https://www.youtube.com/watch?v=hswk_54aVjM)
+        *   [Secure Authentication with JWT in AXUM Rust (24m)](https://www.youtube.com/watch?v=FBnBcYp0K_A)
     *   **Asynchronous Rust with Tokio:** Understand the fundamentals of async programming in Rust.
-        *   Getting started with Tokio (5m): [https://www.youtube.com/watch?v=20-9yV-b-8A](https://www.youtube.com/watch?v=20-9yV-b-8A)
+        *   [Getting started with Tokio (5m)](https://www.youtube.com/watch?v=20-9yV-b-8A)
 
 #### **Phase 3: The Migration Utility (Approx. 2 hours)**
 
 *   **Goal:** Develop and test the standalone tool for migrating data from the legacy system.
 *   **Courses:**
     *   **Building CLIs in Rust with Clap:** Learn how to create robust command-line applications.
-        *   Build a Robust CLI App in Rust with Clap (25m): [https://www.youtube.com/watch?v=CqTh0c4bAUA](https://www.youtube.com/watch?v=CqTh0c4bAUA)
-        *   Parse Rust CLI Args With Clap Rust Tutorial (13m): [https://www.youtube.com/watch?v=l_tHR-q64yQ](https://www.youtube.com/watch?v=l_tHR-q64yQ)
+        *   [Build a Robust CLI App in Rust with Clap (25m)](https://www.youtube.com/watch?v=CqTh0c4bAUA)
+        *   [Parse Rust CLI Args With Clap Rust Tutorial (13m)](https://www.youtube.com/watch?v=l_tHR-q64yQ)
     *   **Data Migration Concepts:** A brief overview of the principles behind data migration.
-        *   Learn Data Migration Basics in 15 Minutes (15m): [https://www.youtube.com/watch?v=i-vj0u3_8d4](https://www.youtube.com/watch?v=i-vj0u3_8d4)
+        *   [Learn Data Migration Basics in 15 Minutes (15m)](https://www.youtube.com/watch?v=i-vj0u3_8d4)
     *   **Connecting to Databases with SQLx:** Practical knowledge for your migration script.
-        *   SQLx in 12 minutes - Rust + Actix Web + PostgreSQL (12m): [https://www.youtube.com/watch?v=5rGkG72-mJA](https://www.youtube.com/watch?v=5rGkG72-mJA)
-        *   Learn Rust SQLX on Postgres (29m): [https://www.youtube.com/watch?v=Ynzpq5g1P4Y](https://www.youtube.com/watch?v=Ynzpq5g1P4Y)
+        *   [SQLx in 12 minutes - Rust + Actix Web + PostgreSQL (12m)](https://www.youtube.com/watch?v=5rGkG72-mJA)
+        *   [Learn Rust SQLX on Postgres (29m)](https://www.youtube.com/watch?v=Ynzpq5g1P4Y)
 
 #### **Phase 4: Final Integration and Validation (Approx. 1.5 hours of review)**
 
