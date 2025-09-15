@@ -139,39 +139,47 @@ This translates the technology stack into the practical skills needed to execute
 
 ### Short Learning Roadmap
 
-This roadmap provides a logical progression for an individual or team to acquire the skills and complete the project.
+This roadmap provides a logical progression with curated YouTube courses to acquire the necessary skills and complete the project within a constrained timeframe. The total watch time is approximately 10 hours.
 
-#### Phase 1: Environment and Foundations
+#### **Phase 1: Environment and Foundations (Approx. 3.5 hours)**
 
 *   **Goal:** Set up the complete development and testing environment.
-*   **Steps:**
-    1.  **Build the WHMCS Testbed:** The absolute first step. Use Docker Compose to create a service for WHMCS (using an existing Docker image) and a MariaDB database. Learn how to install, configure, and populate it with the required complex sample data (users, servers, custom fields). *This is your "source of truth."*
-    2.  **Rust & Web API Basics:** If new to the stack, learn the fundamentals of Rust. Then, focus on `axum`. Build a simple "Hello World" API with a few endpoints.
-    3.  **Database Setup:** Add a PostgreSQL service to your Docker Compose file. Learn `sqlx-cli` and create your initial database migrations for the `users` and `servers` tables in the new system.
-    4.  **Connect API to DB:** Connect your `axum` application to the PostgreSQL database using `sqlx`. Implement a basic, unauthenticated endpoint to create and retrieve a user.
+*   **Courses:**
+    *   **Docker & PostgreSQL:** Start with the fundamentals of containerization and setting up your database.
+        *   Docker Crash Course for Absolute Beginners (1h 18m): [https://www.youtube.com/watch?v=pg19Z8LL06w](https://www.youtube.com/watch?v=pg19Z8LL06w)
+        *   PostgreSQL Tutorial for Beginners (2h 48m, watch the first hour): [https://www.youtube.com/watch?v=sp_n0f_d2-M](https://www.youtube.com/watch?v=sp_n0f_d2-M)
+    *   **WHMCS Setup:** Get a basic understanding of installing and configuring the legacy system.
+        *   Getting Started with WHMCS: Installing WHMCS (4m): [https://www.youtube.com/watch?v=Guw941-2-4A](https://www.youtube.com/watch?v=Guw941-2-4A)
+        *   How to Setup WHMCS (7m): [https://www.youtube.com/watch?v=yW8eay8h2E8](https://www.youtube.com/watch?v=yW8eay8h2E8)
+    *   **Rust & Axum Basics:** A quick introduction to get your first web server running.
+        *   Rust Axum Full Course - Web Development (1h 19m, watch the first 30 minutes): [https://www.youtube.com/watch?v=XZtlD_m59sM](https://www.youtube.com/watch?v=XZtlD_m59sM)
 
-#### Phase 2: Core API Feature Development
+#### **Phase 2: Core API Feature Development (Approx. 3 hours)**
 
 *   **Goal:** Build out the functional, secure core of the new server management API.
-*   **Steps:**
-    1.  **Implement JWT Authentication:** Add a `/login` endpoint. Implement the logic to verify a user's credentials against the database and issue a JWT. Create middleware to protect all other endpoints, requiring a valid token.
-    2.  **Design the Mocking Interface:** Define a `ProxmoxClient` (or similar) trait with methods like `provision_server`. Create a `MockProxmoxClient` implementation that simulates delays and potential errors for testing.
-    3.  **Implement Asynchronous Provisioning:** Create the `POST /servers` endpoint. It should immediately return a `202 Accepted` response. Use `tokio::spawn` to launch a background task that calls the (mocked) provisioning client. Log the outcome of the background task.
-    4.  **Write API Integration Tests:** Write tests that simulate a full user flow: register (or have a user in the DB), log in to get a token, and use that token to successfully request a new server. Assert that the initial response is `202`.
+*   **Courses:**
+    *   **Rust, Axum & SQLx:** Dive deeper into building a production-ready API with database integration.
+        *   Rust Axum Production Coding (3h 36m, watch the first 1.5 hours covering Tracing, Config, and Model Layer): [https://www.youtube.com/watch?v=3cA_mk4vdWY](https://www.youtube.com/watch?v=3cA_mk4vdWY)
+    *   **JWT Authentication in Rust:** Learn how to secure your API endpoints.
+        *   JWT Authentication in Rust | A Step-by-Step Guide (17m): [https://www.youtube.com/watch?v=hswk_54aVjM](https://www.youtube.com/watch?v=hswk_54aVjM)
+        *   Secure Authentication with JWT in AXUM Rust (24m): [https://www.youtube.com/watch?v=FBnBcYp0K_A](https://www.youtube.com/watch?v=FBnBcYp0K_A)
+    *   **Asynchronous Rust with Tokio:** Understand the fundamentals of async programming in Rust.
+        *   Getting started with Tokio (5m): [https://www.youtube.com/watch?v=20-9yV-b-8A](https://www.youtube.com/watch?v=20-9yV-b-8A)
 
-#### Phase 3: The Migration Utility
+#### **Phase 3: The Migration Utility (Approx. 2 hours)**
 
 *   **Goal:** Develop and test the standalone tool for migrating data from the legacy system.
-*   **Steps:**
-    1.  **Build the CLI Skeleton:** Create a new binary project in Rust. Use `clap` to set up the command-line interface, including the essential `--dry-run` flag.
-    2.  **Connect to Both Databases:** Write the logic for your utility to connect to the source WHMCS MariaDB database and the target PostgreSQL database.
-    3.  **Implement the Transformation Logic (Test First!):** This is the most critical part. Write **unit tests** *before* you write the transformation code. Create sample WHMCS data structures in your tests and assert that your transformation functions correctly map them to the new schema, especially for "Configurable Options" and "Custom Fields."
-    4.  **Build the Full Migration Flow:** Implement the core logic: Extract data from WHMCS, transform it in memory, and check for existing records in PostgreSQL (for idempotency). Based on the `--dry-run` flag, either print the intended actions or execute the `INSERT` statements into the new database.
+*   **Courses:**
+    *   **Building CLIs in Rust with Clap:** Learn how to create robust command-line applications.
+        *   Build a Robust CLI App in Rust with Clap (25m): [https://www.youtube.com/watch?v=CqTh0c4bAUA](https://www.youtube.com/watch?v=CqTh0c4bAUA)
+        *   Parse Rust CLI Args With Clap Rust Tutorial (13m): [https://www.youtube.com/watch?v=l_tHR-q64yQ](https://www.youtube.com/watch?v=l_tHR-q64yQ)
+    *   **Data Migration Concepts:** A brief overview of the principles behind data migration.
+        *   Learn Data Migration Basics in 15 Minutes (15m): [https://www.youtube.com/watch?v=i-vj0u3_8d4](https://www.youtube.com/watch?v=i-vj0u3_8d4)
+    *   **Connecting to Databases with SQLx:** Practical knowledge for your migration script.
+        *   SQLx in 12 minutes - Rust + Actix Web + PostgreSQL (12m): [https://www.youtube.com/watch?v=5rGkG72-mJA](https://www.youtube.com/watch?v=5rGkG72-mJA)
+        *   Learn Rust SQLX on Postgres (29m): [https://www.youtube.com/watch?v=Ynzpq5g1P4Y](https://www.youtube.com/watch?v=Ynzpq5g1P4Y)
 
-#### Phase 4: Final Integration and Validation
+#### **Phase 4: Final Integration and Validation (Approx. 1.5 hours of review)**
 
 *   **Goal:** Prove that the entire system works end-to-end.
-*   **Steps:**
-    1.  **Execute the Full Migration:** Run the compiled migration utility against your WHMCS testbed to populate the new PostgreSQL database.
-    2.  **Verify with the API:** Manually (using a tool like `curl` or Postman) and programmatically (with integration tests), verify that you can use the API to interact with the migrated data. For example, log in as a user from WHMCS and fetch the details of their migrated server.
-    3.  **Refine and Document:** Clean up the code, add comments, and write a `README.md` that explains how to set up the environment, run the API, and execute the migration.
+*   **Action:** At this stage, you will apply the knowledge gained from the previous phases. Refer back to the relevant sections of the courses as needed to complete the final integration and write your tests. This phase is more about hands-on application than new learning. Review the latter parts of the "Rust Axum Production Coding" course for testing and validation best practices.
