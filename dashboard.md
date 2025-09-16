@@ -154,8 +154,8 @@ This roadmap provides a logical progression with curated YouTube courses to acqu
         *   [Docker Crash Course for Absolute Beginners (1h 18m)](https://www.youtube.com/watch?v=pg19Z8LL06w)
         *   [PostgreSQL Tutorial for Beginners (2h 48m, watch the first hour)](https://www.youtube.com/watch?v=sp_n0f_d2-M)
     *   **WHMCS Setup:** Get a basic understanding of installing and configuring the legacy system.
-        *   [Getting Started with WHMCS: Installing WHMCS (4m)](https://www.youtube.com/watch?v=Guw941-2-4A)
-        *   [How to Setup WHMCS (7m)](https://www.youtube.com/watch?v=yW8eay8h2E8)
+        *   [Getting Started with WHMCS: Installing WHMCS (4m)](https://youtu.be/nxd8VYu8u5s?si=IMX5Pv3xmisWZa3P)
+        *   [How to Setup WHMCS (7m)](https://www.youtube.com/watch?v=UBr6vaBHz9U)
     *   **Rust & Axum Basics:** A quick introduction to get your first web server running.
         *   [Rust Axum Full Course - Web Development (1h 19m, watch the first 30 minutes)](https://www.youtube.com/watch?v=XZtlD_m59sM)
 
