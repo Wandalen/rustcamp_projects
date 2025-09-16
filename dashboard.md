@@ -52,7 +52,7 @@ A modern Single-Page Application (SPA) will serve as the primary user interface 
 
 A separate, standalone Rust binary will be created to demonstrate a safe and effective data migration process.
 
-*   **Direct Database Extraction:** The utility will connect directly to the WHMCS MariaDB/MySQL database to extract user and server data.
+*   **Direct Database Extraction:** The utility will connect directly to the WHMCS MySQL database to extract user and server data.
 *   **Core Transformation Logic:** The script's primary purpose is to prove it can migrate active users and their servers. The most critical task is to correctly extract and transform data from WHMCS's **Configurable Options and Custom Fields** into the new, structured PostgreSQL schema.
 *   **Essential Safeguards:** To prove the migration strategy is viable and safe, the utility must include:
     *   **Idempotency:** The script must be safe to run multiple times without creating duplicate data.
@@ -81,21 +81,20 @@ This stack includes the technologies explicitly mentioned and those implicitly r
 *   **Tokio:** The asynchronous runtime powering the `axum` web framework.
 *   **Axum:** The web framework for building the core REST API.
 *   **SQLx:** The asynchronous SQL toolkit for Rust, used for interacting with PostgreSQL.
-*   **Diesel:** An alternative ORM and query builder for Rust (choice between `sqlx` and `diesel`).
 *   **Serde:** The framework for serializing and deserializing Rust data structures, primarily for JSON API payloads.
 *   **Clap:** A command-line argument parser for building the standalone migration utility.
 *   **Tracing:** A framework for instrumenting Rust programs to collect structured, event-based diagnostic information.
 
 **Database Systems**
 *   **PostgreSQL:** The target database for the new, modern application.
-*   **MariaDB/MySQL:** The source database used by the legacy WHMCS instance.
+*   **MySQL:** The source database used by the legacy WHMCS instance.
 *   **SQL:** Proficiency in both PostgreSQL and MySQL dialects is required.
 
 **Web & API Technologies**
 *   **RESTful API Design:** Principles for creating clean, predictable web APIs.
 *   **HTTP:** Core understanding of methods (GET, POST), status codes (e.g., 200 OK, 202 Accepted, 401 Unauthorized), and headers.
 *   **JSON (JavaScript Object Notation):** The data format for API communication.
-*   **JWT (JSON Web Tokens):** The standard for stateless API authentication. Crates like `jsonwebtoken` or `biscuit` would be used.
+*   **JWT (JSON Web Tokens):** The standard for stateless API authentication. Crates like `jsonwebtoken` would be used.
 
 **Legacy System & Environment**
 *   **WHMCS:** The legacy PHP-based billing and automation platform.
@@ -126,7 +125,7 @@ This translates the technology stack into the practical skills needed to execute
 **2. Database Engineering & Data Migration**
 *   **Relational Database Modeling:** The ability to design a clean, normalized PostgreSQL schema that effectively models the domain (users, servers, specs) and improves upon the legacy WHMCS structure.
 *   **Complex Data Transformation:** The critical skill of analyzing a legacy database schema (WHMCS) and writing transformation logic to map its data—especially complex, unstructured data from "Custom Fields"—into a new, structured schema.
-*   *   **ETL (Extract, Transform, Load) Principles:** Understanding the core concepts of data extraction from a source (MySQL), in-memory transformation (in Rust), and loading into a target (PostgreSQL).
+*   **ETL (Extract, Transform, Load) Principles:** Understanding the core concepts of data extraction from a source (MySQL), in-memory transformation (in Rust), and loading into a target (PostgreSQL).
 *   **SQL Proficiency:** Strong SQL skills in both MySQL and PostgreSQL to query the source data effectively and verify the migrated data in the target.
 *   **Idempotent Scripting:** The ability to write scripts that can be run multiple times with the same outcome, preventing data duplication or corruption.
 
