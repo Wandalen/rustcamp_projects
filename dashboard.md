@@ -30,9 +30,11 @@ Build a complete WHMCS replacement: a Rust API orchestrating Proxmox VE, a React
 
 ### Migration Utility (Rust CLI)
 
-*   **Data Extraction:** Direct connection to WHMCS MariaDB/MySQL for user and server data
-*   **Transformation:** Convert WHMCS **Configurable Options** and **Custom Fields** to structured PostgreSQL schema
-*   **Safety Features:** Idempotent execution and `--dry-run` flag for safe validation
+*   **Direct Database Extraction:** The utility will connect directly to the WHMCS MySQL database to extract user and server data.
+*   **Core Transformation Logic:** The script's primary purpose is to prove it can migrate active users and their servers. The most critical task is to correctly extract and transform data from WHMCS's **Configurable Options and Custom Fields** into the new, structured PostgreSQL schema.
+*   **Essential Safeguards:** To prove the migration strategy is viable and safe, the utility must include:
+    *   **Idempotency:** The script must be safe to run multiple times without creating duplicate data.
+    *   **A `--dry-run` flag:** This will print a summary of actions that would be taken, allowing for validation without committing any changes.
 
 ### Full-Stack Quality and Validation
 
@@ -57,21 +59,20 @@ This stack includes the technologies explicitly mentioned and those implicitly r
 *   **Tokio:** The asynchronous runtime powering the `axum` web framework.
 *   **Axum:** The web framework for building the core REST API.
 *   **SQLx:** The asynchronous SQL toolkit for Rust, used for interacting with PostgreSQL.
-*   **Diesel:** An alternative ORM and query builder for Rust (choice between `sqlx` and `diesel`).
 *   **Serde:** The framework for serializing and deserializing Rust data structures, primarily for JSON API payloads.
 *   **Clap:** A command-line argument parser for building the standalone migration utility.
 *   **Tracing:** A framework for instrumenting Rust programs to collect structured, event-based diagnostic information.
 
 **Database Systems**
 *   **PostgreSQL:** The target database for the new, modern application.
-*   **MariaDB/MySQL:** The source database used by the legacy WHMCS instance.
+*   **MySQL:** The source database used by the legacy WHMCS instance.
 *   **SQL:** Proficiency in both PostgreSQL and MySQL dialects is required.
 
 **Web & API Technologies**
 *   **RESTful API Design:** Principles for creating clean, predictable web APIs.
 *   **HTTP:** Core understanding of methods (GET, POST), status codes (e.g., 200 OK, 202 Accepted, 401 Unauthorized), and headers.
 *   **JSON (JavaScript Object Notation):** The data format for API communication.
-*   **JWT (JSON Web Tokens):** The standard for stateless API authentication. Crates like `jsonwebtoken` or `biscuit` would be used.
+*   **JWT (JSON Web Tokens):** The standard for stateless API authentication. Crates like `jsonwebtoken` would be used.
 
 **Legacy System & Environment**
 *   **WHMCS:** The legacy PHP-based billing and automation platform.
@@ -102,7 +103,7 @@ This translates the technology stack into the practical skills needed to execute
 **2. Database Engineering & Data Migration**
 *   **Relational Database Modeling:** The ability to design a clean, normalized PostgreSQL schema that effectively models the domain (users, servers, specs) and improves upon the legacy WHMCS structure.
 *   **Complex Data Transformation:** The critical skill of analyzing a legacy database schema (WHMCS) and writing transformation logic to map its data—especially complex, unstructured data from "Custom Fields"—into a new, structured schema.
-*   *   **ETL (Extract, Transform, Load) Principles:** Understanding the core concepts of data extraction from a source (MySQL), in-memory transformation (in Rust), and loading into a target (PostgreSQL).
+*   **ETL (Extract, Transform, Load) Principles:** Understanding the core concepts of data extraction from a source (MySQL), in-memory transformation (in Rust), and loading into a target (PostgreSQL).
 *   **SQL Proficiency:** Strong SQL skills in both MySQL and PostgreSQL to query the source data effectively and verify the migrated data in the target.
 *   **Idempotent Scripting:** The ability to write scripts that can be run multiple times with the same outcome, preventing data duplication or corruption.
 
@@ -131,8 +132,8 @@ This roadmap provides a logical progression with curated YouTube courses to acqu
         *   [Docker Crash Course for Absolute Beginners (1h 18m)](https://www.youtube.com/watch?v=pg19Z8LL06w)
         *   [PostgreSQL Tutorial for Beginners (2h 48m, watch the first hour)](https://www.youtube.com/watch?v=sp_n0f_d2-M)
     *   **WHMCS Setup:** Get a basic understanding of installing and configuring the legacy system.
-        *   [Getting Started with WHMCS: Installing WHMCS (4m)](https://www.youtube.com/watch?v=Guw941-2-4A)
-        *   [How to Setup WHMCS (7m)](https://www.youtube.com/watch?v=yW8eay8h2E8)
+        *   [Getting Started with WHMCS: Installing WHMCS (4m)](https://youtu.be/nxd8VYu8u5s?si=IMX5Pv3xmisWZa3P)
+        *   [How to Setup WHMCS (7m)](https://www.youtube.com/watch?v=UBr6vaBHz9U)
     *   **Rust & Axum Basics:** A quick introduction to get your first web server running.
         *   [Rust Axum Full Course - Web Development (1h 19m, watch the first 30 minutes)](https://www.youtube.com/watch?v=XZtlD_m59sM)
 
